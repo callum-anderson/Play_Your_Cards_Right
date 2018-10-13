@@ -1,0 +1,15 @@
+{
+  "name": "playyourcardsright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "PlayYourCardsRight.js",
+  "dependencies": {
+    "webpack": "^4.20.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
