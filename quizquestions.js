@@ -24,38 +24,7 @@ const quizquestions = [{question: "The Eiffel Tower is located where in Paris?",
   answer: 1}
 ];
 
-function loadQuestion() {
-  const randNumber = (Math.floor(Math.random()*quizquestions.length));
-  const questionToReturn = quizquestions.splice(randNumber, 1);
-  return questionToReturn;
-}
 
-function addQuestionToPage(loadedQuestion) {
-  const gameOutput = document.querySelector('#game-output');
-  const quest = document.createElement('p');
-  quest.textContent = loadedQuestion[0].question;
-  const questions = document.createElement('ul');
-  for (option in loadedQuestion[0].answers) {
-    const listItem = document.createElement('li');
-    listItem.textContent = loadedQuestion[0].answers[option];
-    listItem.onclick = function(e) {
-      e.target.parentNode.children[loadedQuestion[0].answer].classList.add('highlight-correct-answer');
-      if (e.target.textContent === loadedQuestion[0].answers[loadedQuestion[0].answer]) {
-        gameOutput.innerHTML = "Correct!";
-        changeCard();
-      } else {
-        gameOutput.innerHTML = "Incorrect!";
-      }
-      for (item of e.target.parentNode.children) {
-        item.onclick = null;
-      }
-    };
-    questions.appendChild(listItem);
-  }
-  const questionSection = document.querySelector('#question-output');
-  questionSection.appendChild(quest);
-  questionSection.appendChild(questions);
-}
 
 
 

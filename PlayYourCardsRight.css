@@ -3,33 +3,65 @@ body {
 }
 #header {
   padding: 2em;
-  height: 15vh;
-  min-height: 40px;
-  background-image: linear-gradient(0deg, transparent 0%, white 80%);
+  height: 20vh;
+  min-height: 100px;
   font-family: "Segoe Script", "Script", "Georgia", serif;
 }
 #header > h1 {
-  margin: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+  padding: 0.5em;
+  background-color: rgba(255,255,255,0.8);
   font-size: 2em;
   font-weight: bold;
-  text-shadow: 2px 1px 2px lightgray;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  text-shadow: 2px 2px rgba(150,150,150,0.7);
+  box-shadow: 2px 1px 2px lightgray;
 }
 #menu {
-  margin: 1em auto;
+  margin: 3em auto;
+  width: 80%;
+}
+#menu ul {
+  text-align: center;
+  margin: auto;
+  width: 80%;
+}
+#menu li {
+  margin: 0 1em;
+  padding: 0.1em 0.7em;
+  text-align: center;
+  display: inline-block;
+  list-style-type: none;
+  background-color: rgba(255,255,255,0.8);
+  font-weight: bold;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  text-shadow: 2px 2px rgba(150,150,150,0.7);
+  box-shadow: 2px 1px 2px lightgray;
 }
 #container {
   width: 90%;
   margin: auto;
-  background-image: linear-gradient(90deg, purple 0%, lightgrey 10%, lightgrey 90%, purple 100%);
-  min-height: 800px;
+  min-height: 600px;
   text-align: center;
 }
 #cardRack {
-  border: 3px groove darkgrey;
-  background-color: lightblue;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 2px 1px 2px lightgray;
   min-height: 100px;
   width: 90%;
-  margin: auto;
+  margin: 3em auto;
+}
+#buttonControls button {
+  border-radius: 10px;
+  margin: 0 0.5em;
+  padding: 0.1em 0.7em;
+  box-shadow: 1px 1px lightgray;
 }
 .higher-lower-pressed {
   color: red;
