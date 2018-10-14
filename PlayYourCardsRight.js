@@ -26,7 +26,7 @@ const questionSection = document.querySelector('#question-output');
     for (i=0; i<cardSlots.length; i++) {
       const randCard = randomCard();
       dealtCards.push(randCard);
-      cardSlots[i].firstElementChild.textContent = `${randCard.name} of ${randCard.suit}`;
+      renderCard(cardSlots[i].firstElementChild, randCard.value, randCard.suit);
     }
     console.log(dealtCards);
     setUpCards();
@@ -41,6 +41,34 @@ const questionSection = document.querySelector('#question-output');
     e.target.classList.add('higher-lower-pressed');
   });
 
+function renderCard(targetCard, cardRank, cardSuit){
+  let suit = cardSuit;
+  switch (suit) {
+    case "Hearts": suit = "\u2665"; targetCard.style.color = "red";
+    break;
+    case "Diamonds": suit = "\u2666"; targetCard.style.color = "red";
+    break;
+    case "Clubs": suit = "\u2660";
+    break;
+    case "Spades": suit = "\u2663";
+    break;
+  }
+  let rank = cardRank;
+  if (rank>10){
+    switch (rank) {
+      case 11: rank = "J";
+      break;
+      case 12: rank = "Q";
+      break;
+      case 13: rank = "K";
+      break;
+      case 14: rank = "A";
+      break;
+    }
+  }
+  targetCard.innerHTML = "<p class='card-top-left'>"+rank+"<br>"+suit+"</p><p class='card-middle'>"+suit+"</p><p class='card-bottom-right'>"+rank+"<br>"+suit+"</p>";
+}
+
 function setUpCards(){
   for (cardSlot of cardSlots) {
     if (cardSlot.previousElementSibling === null) {
@@ -52,6 +80,7 @@ function setUpCards(){
       if (!e.target.previousElementSibling.firstElementChild.classList.contains('hidden')
           && higherOrLowerClicked())
       {
+        e.target.style.background = "white";
         innerCard.classList.remove('hidden');
         if (e.target.nextElementSibling != null && evaluateCards()) {
           e.target.nextElementSibling.classList.add('next-card');
@@ -68,6 +97,7 @@ function setUpCards(){
     }
     cardSlots[0].onclick = function(e) {
       const innerCard = e.target.firstElementChild;
+      e.target.style.background = "white";
       innerCard.classList.remove('hidden');
       e.target.nextElementSibling.classList.add('next-card');
       resetControls();

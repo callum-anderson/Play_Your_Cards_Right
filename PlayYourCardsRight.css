@@ -2,18 +2,20 @@ body {
   background-color: purple;
 }
 #header {
-  padding: 2em;
+  padding: 1.5em;
   height: 20vh;
   min-height: 100px;
   font-family: "Segoe Script", "Script", "Georgia", serif;
+  width: 100%;
+  margin: auto;
 }
 #header > h1 {
+  font-size: 1em;
   text-align: center;
   margin: 0 auto;
-  width: 70%;
+  width: 90%;
   padding: 0.5em;
   background-color: rgba(255,255,255,0.8);
-  font-size: 2em;
   font-weight: bold;
   border: 3px solid lightgray;
   border-radius: 10px;
@@ -21,19 +23,22 @@ body {
   box-shadow: 2px 1px 2px lightgray;
 }
 #menu {
-  margin: 3em auto;
-  width: 80%;
+  margin: 2em auto;
+  width: 90%;
 }
 #menu ul {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 0.7em;
   margin: auto;
-  width: 80%;
+  width: 90%;
+  padding: 0;
 }
 #menu li {
-  margin: 0 1em;
   padding: 0.1em 0.7em;
   text-align: center;
-  display: inline-block;
   list-style-type: none;
   background-color: rgba(255,255,255,0.8);
   font-weight: bold;
@@ -41,6 +46,7 @@ body {
   border-radius: 10px;
   text-shadow: 2px 2px rgba(150,150,150,0.7);
   box-shadow: 2px 1px 2px lightgray;
+  cursor: pointer;
 }
 #container {
   width: 90%;
@@ -49,19 +55,22 @@ body {
   text-align: center;
 }
 #cardRack {
-  border: 3px solid lightgray;
+  border: 2px solid lightgray;
   border-radius: 10px;
   background-color: rgba(255,255,255,0.8);
   box-shadow: 2px 1px 2px lightgray;
   min-height: 100px;
-  width: 90%;
-  margin: 3em auto;
+  width: 100%;
+  margin: 2em auto;
+  padding: 6% 0;
 }
 #buttonControls button {
+  font-size: 0.7em;
   border-radius: 10px;
-  margin: 0 0.5em;
+  margin: 0.2em;
   padding: 0.1em 0.7em;
-  box-shadow: 1px 1px lightgray;
+  box-shadow: 0.5px 0.5px lightgray;
+  cursor: pointer;
 }
 .higher-lower-pressed {
   color: red;
@@ -90,20 +99,37 @@ body {
 
 
 
-//Media queries
 
-     /* start of large tablet styles */
-@media screen and (max-width: 991px) {
-
+     /* start of tablet devices */
+@media screen and (min-width: 769px) {
+  #header {
+    height: 20vh;
+    font-size: 2em;
+    padding: 2em;
+  }
+  #header > h1 {
+    width: 70%;
+  }
+  #menu {
+    margin: 3em auto;
+    width: 80%;
+  }
+  #menu ul {
+    width: 80%;
+  }
+  #menu li {
+    margin: 0 1em;
+    padding: 0.1em 0.7em;
+  }
+  #cardRack {
+    border: 3px solid lightgray;
+    width: 90%;
+    margin: 3em auto;
+  }
 
 }
-     /* start of medium tablet styles */
-@media screen and (max-width: 767px) {
-
-
-}
-     /* start of phone styles */
-@media screen and (max-width: 479px) {
+     /* start of desktop devices */
+@media screen and (min-width: 1025px) {
 
 
 }

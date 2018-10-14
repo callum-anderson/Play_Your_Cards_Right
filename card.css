@@ -1,18 +1,19 @@
 .card{
   display: inline-block;
-  border: 2px darkred solid;
+  border: 1px darkred solid;
   border-radius: 10px;
 	position: relative;
-  width: 15%;
+  width: 16%;
   margin: 1%;
   background:
   repeating-linear-gradient(
     45deg,
-    red,
-    red 10px,
+    lightcoral,
+    lightcoral 10px,
     crimson 10px,
     crimson 20px
   );
+  font-size: 0.5em;
 }
 .card:before{
 	content: "";
@@ -32,4 +33,42 @@
 }
 .next-card {
   cursor: pointer;
+}
+.card-top-left, .card-middle, .card-bottom-right {
+  margin: 0;
+  position: absolute;
+  font-size: 1.1em;
+  font-family: Helvetica sans-serif;
+}
+.card-top-left {
+top: 6%;
+left: 6%;
+}
+.card-middle {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.5em;
+}
+.card-bottom-right {
+  bottom: 6%;
+  right: 6%;
+  -webkit-transform:rotate(-180deg);
+  -moz-transform:rotate(-180deg);
+  -o-transform:rotate(-180deg);
+  transform:rotate(-180deg);
+}
+
+/* start of tablet devices */
+@media screen and (min-width: 769px) {
+  .card{
+    margin: 2%;
+      border: 2px darkred solid;
+  }
+
+}
+/* start of desktop devices */
+@media screen and (min-width: 1025px) {
+
+
 }
