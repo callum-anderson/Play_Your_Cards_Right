@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.querySelector('body').innerHTML += star;
   }
 
+let gameDeck = startDeck;
+
 const card1Slot = document.querySelector('#card1');
 const card2Slot = document.querySelector('#card2');
 const card3Slot = document.querySelector('#card3');
@@ -15,6 +17,7 @@ const dealtCards = [];
 let currentCard = 0;
 
 const dealButton = document.querySelector('#deal-button');
+const playButton = document.querySelector('#play-button');
 const higherButton = document.querySelector('#higher-button');
 const lowerButton = document.querySelector('#lower-button');
 const changeCardButton = document.querySelector('#change-card');
@@ -22,15 +25,12 @@ const changeCardButton = document.querySelector('#change-card');
 const gameOutput = document.querySelector('#game-output');
 const questionSection = document.querySelector('#question-output');
 
-  dealButton.addEventListener('click', ()=>{
-    for (i=0; i<cardSlots.length; i++) {
-      const randCard = randomCard();
-      dealtCards.push(randCard);
-      renderCard(cardSlots[i].firstElementChild, randCard.value, randCard.suit);
-    }
-    console.log(dealtCards);
-    setUpCards();
-  });
+playButton.addEventListener('click', ()=>{
+  resetGame();
+  dealCards();
+  setUpCards();
+});
+
 
   higherButton.addEventListener('click', (e)=>{
     lowerButton.classList.remove('higher-lower-pressed');
@@ -67,6 +67,21 @@ function renderCard(targetCard, cardRank, cardSuit){
     }
   }
   targetCard.innerHTML = "<p class='card-top-left'>"+rank+"<br>"+suit+"</p><p class='card-middle'>"+suit+"</p><p class='card-bottom-right'>"+rank+"<br>"+suit+"</p>";
+}
+
+function dealCards() {
+  let i = 0;
+  function setCard() {
+    cardSlots[i].style.background = 'repeating-linear-gradient(45deg,lightcoral,lightcoral 10px,crimson 10px,crimson 20px)';
+    const randCard = randomCard();
+    dealtCards.push(randCard);
+    renderCard(cardSlots[i].firstElementChild, randCard.value, randCard.suit);
+    i++;
+    if (i<cardSlots.length){
+      setTimeout(setCard, 200);
+    }
+  }
+  setCard();
 }
 
 function setUpCards(){
@@ -174,9 +189,9 @@ function addQuestionToPage(loadedQuestion) {
   }
 
   function randomCard(){
-    if (cardDeck.length>0) {
-    const randNumber = (Math.floor(Math.random()*cardDeck.length));
-    return cardDeck.splice(randNumber, 1)[0];
+    if (gameDeck.length>0) {
+    const randNumber = (Math.floor(Math.random()*gameDeck.length));
+    return gameDeck.splice(randNumber, 1)[0];
     } else return null;
   }
 
@@ -196,6 +211,14 @@ function addQuestionToPage(loadedQuestion) {
   function clearAreas() {
     gameOutput.innerHTML = "";
     questionSection.innerHTML = "";
+  }
+
+  function resetGame() {
+    for (cardSlot of cardSlots) {
+      cardSlot.innerHTML = '<div class="card-content hidden"></div>';
+    }
+    gameDeck = startDeck;
+    dealtCards.length = 0;
   }
 
 });

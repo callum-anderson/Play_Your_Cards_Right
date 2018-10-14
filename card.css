@@ -5,14 +5,7 @@
 	position: relative;
   width: 16%;
   margin: 1%;
-  background:
-  repeating-linear-gradient(
-    45deg,
-    lightcoral,
-    lightcoral 10px,
-    crimson 10px,
-    crimson 20px
-  );
+  background-color: "white";
   font-size: 0.5em;
 }
 .card:before{
@@ -60,15 +53,20 @@ left: 6%;
 }
 
 /* start of tablet devices */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   .card{
-    margin: 2%;
-      border: 2px darkred solid;
+    border: 2px darkred solid;
+  }
+  .card-top-left, .card-middle, .card-bottom-right {
+    font-size: 3em;
+  }
+  .card-middle {
+    font-size: 12em;
   }
 
 }
 /* start of desktop devices */
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
 
 
 }

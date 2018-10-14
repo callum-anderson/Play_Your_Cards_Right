@@ -18,7 +18,7 @@
       <h1>Play Your Cards Right</h1>
       <div id="menu">
         <ul>
-          <li>Play</li>
+          <li id="play-button">Play</li>
           <li>Rules</li>
           <li>About</li>
         </ul>
@@ -27,7 +27,9 @@
   </header>
   <main>
     <div id="container">
-    <div id="cardRack">
+      <div id="game-output">
+      </div>
+    <div id="card-rack">
       <div id="card1" class="card">
         <div class="card-content hidden"></div>
       </div>
@@ -44,15 +46,12 @@
         <div class="card-content hidden"></div>
       </div>
     </div>
-    <div id="buttonControls">
-      <button id="deal-button">Deal Cards</button>
+    <div id="button-controls">
       <button id="higher-button">Higher</button>
       <button id="lower-button">Lower</button>
       <button id="change-card">Change Card</button>
     </div>
     <div id="question-output">
-    </div>
-    <div id="game-output">
     </div>
     </div>
   </main>

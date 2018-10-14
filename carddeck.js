@@ -1,4 +1,4 @@
-const cardDeck = [
+const startDeck = [
   { name: "Two", value: 2, suit: "Hearts" },
   { name: "Three", value: 3, suit: "Hearts" },
   { name: "Four", value: 4, suit: "Hearts" },

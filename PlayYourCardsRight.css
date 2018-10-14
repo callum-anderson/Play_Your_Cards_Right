@@ -9,18 +9,21 @@ body {
   width: 100%;
   margin: auto;
 }
-#header > h1 {
-  font-size: 1em;
-  text-align: center;
-  margin: 0 auto;
-  width: 90%;
-  padding: 0.5em;
+#header > h1, #game-output, #card-rack, #question-output  {
   background-color: rgba(255,255,255,0.8);
   font-weight: bold;
   border: 3px solid lightgray;
   border-radius: 10px;
   text-shadow: 2px 2px rgba(150,150,150,0.7);
   box-shadow: 2px 1px 2px lightgray;
+  width: 100%;
+}
+#header > h1 {
+  font-size: 1em;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+  padding: 0.5em;
 }
 #menu {
   margin: 2em auto;
@@ -48,23 +51,21 @@ body {
   box-shadow: 2px 1px 2px lightgray;
   cursor: pointer;
 }
+#menu li:hover {
+  background-color: rgb(255,255,255);
+}
 #container {
   width: 90%;
   margin: auto;
   min-height: 600px;
   text-align: center;
 }
-#cardRack {
-  border: 2px solid lightgray;
-  border-radius: 10px;
-  background-color: rgba(255,255,255,0.8);
-  box-shadow: 2px 1px 2px lightgray;
+#card-rack {
   min-height: 100px;
-  width: 100%;
   margin: 2em auto;
   padding: 6% 0;
 }
-#buttonControls button {
+#button-controls button {
   font-size: 0.7em;
   border-radius: 10px;
   margin: 0.2em;
@@ -72,20 +73,15 @@ body {
   box-shadow: 0.5px 0.5px lightgray;
   cursor: pointer;
 }
+#button-controls button:hover {
+  background-color: rgb(255,255,255);
+}
 .higher-lower-pressed {
   color: red;
 }
-#question-output {
-  height: 20vw;
-  min-height: 200px;
-  width: 80%;
+#question-output, #game-output {
   margin: auto;
-}
-#game-output {
-  height: 10vw;
-  min-height: 100px;
-  width: 80%;
-  margin: auto;
+  visibility: hidden;
 }
 .highlight-correct-answer {
   background-color: green;
@@ -101,35 +97,49 @@ body {
 
 
      /* start of tablet devices */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
   #header {
-    height: 20vh;
-    font-size: 2em;
-    padding: 2em;
+    height: auto;
+    padding: 1.5em 0 0;
   }
   #header > h1 {
     width: 70%;
+    font-size: 1.5em;
   }
   #menu {
-    margin: 3em auto;
+    margin: 2em auto;
     width: 80%;
   }
   #menu ul {
     width: 80%;
+    font-size: 1.2em;
   }
   #menu li {
     margin: 0 1em;
     padding: 0.1em 0.7em;
   }
-  #cardRack {
+  #card-rack, #question-output, #game-output {
     border: 3px solid lightgray;
-    width: 90%;
-    margin: 3em auto;
+    width: 95%;
+    margin: 1em auto;
+  }
+  #button-controls button {
+    font-size: 1.2em;
+    margin: 0.2em;
+    padding: 0.2em 0.8em;
+    box-shadow: 1px 1px lightgray;
   }
 
 }
      /* start of desktop devices */
-@media screen and (min-width: 1025px) {
-
+@media screen and (min-width: 1024px) {
+  #header {
+    font-size: 1.5em;
+    padding: 1.5em 0 0;
+  }
+  #menu {
+    margin: 1.5em auto;
+    width: 60%;
+  }
 
 }
