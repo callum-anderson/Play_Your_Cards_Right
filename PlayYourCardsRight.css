@@ -1,22 +1,21 @@
 body {
   background-color: purple;
+  width: 100%;
+  margin: 0 auto;
 }
 #header {
   padding: 1.5em;
   height: 20vh;
   min-height: 100px;
   font-family: "Segoe Script", "Script", "Georgia", serif;
-  width: 100%;
-  margin: auto;
 }
-#header > h1, #game-output, #card-rack, #question-output  {
+#header > h1, #game-output, #game-area {
   background-color: rgba(255,255,255,0.8);
   font-weight: bold;
   border: 3px solid lightgray;
   border-radius: 10px;
   text-shadow: 2px 2px rgba(150,150,150,0.7);
   box-shadow: 2px 1px 2px lightgray;
-  width: 100%;
 }
 #header > h1 {
   font-size: 1em;
@@ -62,8 +61,12 @@ body {
 }
 #card-rack {
   min-height: 100px;
-  margin: 2em auto;
-  padding: 6% 0;
+  margin: 0 auto;
+  padding: 5% 0;
+  text-shadow: none;
+}
+#button-controls {
+  margin-bottom: 1em;
 }
 #button-controls button {
   font-size: 0.7em;
@@ -79,20 +82,13 @@ body {
 .higher-lower-pressed {
   color: red;
 }
-#question-output, #game-output {
+#game-output {
   margin: auto;
-  visibility: hidden;
+  text-shadow: none;
 }
 .highlight-correct-answer {
   background-color: green;
 }
-
-
-
-
-
-
-
 
 
 
@@ -112,34 +108,39 @@ body {
   }
   #menu ul {
     width: 80%;
-    font-size: 1.2em;
+    font-size: 1em;
   }
   #menu li {
     margin: 0 1em;
     padding: 0.1em 0.7em;
   }
-  #card-rack, #question-output, #game-output {
+  #game-area, #game-output {
     border: 3px solid lightgray;
-    width: 95%;
+    width: 100%;
     margin: 1em auto;
   }
   #button-controls button {
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0.2em;
-    padding: 0.2em 0.8em;
+    padding: 0.1em 0.8em;
     box-shadow: 1px 1px lightgray;
   }
 
 }
      /* start of desktop devices */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   #header {
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 1.5em 0 0;
   }
   #menu {
     margin: 1.5em auto;
     width: 60%;
+  }
+  #game-area, #game-output {
+    border: 3px solid lightgray;
+    width: 80%;
+    margin: 1em auto;
   }
 
 }
