@@ -26,8 +26,8 @@
 }
 .next-card {
   cursor: pointer;
-  -webkit-box-shadow: 0 0 30px purple;
-        box-shadow: 0 0 30px purple;
+  -webkit-box-shadow: 0 0 20px purple;
+        box-shadow: 0 0 20px purple;
 }
 .card-top-left, .card-middle, .card-bottom-right {
   margin: 0;
@@ -59,6 +59,10 @@ left: 6%;
   .card{
     border: 2px darkred solid;
     border-radius: 10px;
+  }
+  .next-card {
+    -webkit-box-shadow: 0 0 30px purple;
+          box-shadow: 0 0 30px purple;
   }
   .card-top-left, .card-middle, .card-bottom-right {
     font-size: 3em;

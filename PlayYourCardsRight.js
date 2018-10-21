@@ -190,7 +190,7 @@ function addQuestionToPage(loadedQuestion) {
     listItem.onclick = function(e) {
       e.target.parentNode.children[loadedQuestion[0].answer].classList.add('highlight-correct-answer');
       if (e.target.textContent === loadedQuestion[0].answers[loadedQuestion[0].answer]) {
-        gameInfo.textContent = "Correct!";
+        gameInfo.textContent = "Correct! Your card has been swapped.";
         changeCard();
       } else {
         gameInfo.textContent = "Incorrect!";
@@ -251,7 +251,7 @@ function addQuestionToPage(loadedQuestion) {
     for (cardSlot of cardSlots) {
       cardSlot.onclick = null;
     }
-    gameWon ? gameInfo.textContent = "YOU WIN" : gameInfo.textContent = "GAME OVER";
+    gameWon ? gameInfo.textContent = "YOU WIN" : gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
   }
 
   function clearAreas() {
@@ -281,7 +281,7 @@ function addQuestionToPage(loadedQuestion) {
     rackCards();
     gameDeck = startDeck;
     dealtCards.length = 0;
-    gameInfo.textContent = "";
+    gameInfo.textContent = "Click on the first card to reveal it...";
     questionSection.innerHTML = "";
     gameScore.textContent = "0";
     cardChanges.textContent = "3";

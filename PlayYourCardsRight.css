@@ -1,6 +1,9 @@
+html, body {
+  width: 100%;
+  padding: 0;
+}
 body {
   background-color: purple;
-  width: 100%;
   margin: 0 auto;
 }
 #header {
@@ -40,7 +43,7 @@ body {
   justify-content: space-around;
   flex-wrap: nowrap;
   align-items: center;
-  font-size: 0.7em;
+  font-size: 0.9em;
   margin: auto;
   width: 90%;
   padding: 0;
@@ -79,7 +82,7 @@ body {
   margin-bottom: 1em;
 }
 #button-controls button {
-  font-size: 0.7em;
+  font-size: 0.8em;
   border-radius: 10px;
   margin: 0.2em;
   padding: 0.1em 0.7em;
@@ -134,7 +137,7 @@ margin-left: 0.4em;
   border-radius: 5px;
 }
 #question-output li:hover {
-  background-color: white;
+  background-color: snow;
   cursor: pointer;
 }
 #question-output li {
@@ -217,17 +220,31 @@ margin-left: 0.4em;
      /* start of desktop devices */
 @media screen and (min-width: 1025px) {
   #header {
-    font-size: 1.2em;
-    padding: 1.5em 0 0;
+    font-size: 0.7em;
+    padding: 0.6em 0 0;
   }
   #menu {
     margin: 1.5em auto;
     width: 60%;
+    font-size: 0.8em;
+  }
+  #button-controls button {
+    font-size: 1.2em;
   }
   #game-area, #game-output {
     border: 3px solid lightgray;
     width: 80%;
-    margin: 1em auto;
+    margin: 0.5em auto;
+  }
+  #card-rack {
+    padding: 0.4em;
+  }
+  #game-output {
+    font-size: 1em;
+  }
+  #game-info {
+    min-height: 50px;
+    padding: 0.8em;
   }
   #game-output ul {
     width: 60%;
