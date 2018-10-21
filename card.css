@@ -1,10 +1,10 @@
 .card{
   display: inline-block;
   border: 1px darkred solid;
-  border-radius: 10px;
+  border-radius: 5px;
 	position: relative;
-  width: 16%;
-  margin: 1%;
+  width: 17%;
+  margin: 0.5%;
   background-color: white;
   font-size: 0.5em;
 }
@@ -26,6 +26,8 @@
 }
 .next-card {
   cursor: pointer;
+  -webkit-box-shadow: 0 0 30px purple;
+        box-shadow: 0 0 30px purple;
 }
 .card-top-left, .card-middle, .card-bottom-right {
   margin: 0;
@@ -56,6 +58,7 @@ left: 6%;
 @media screen and (min-width: 768px) {
   .card{
     border: 2px darkred solid;
+    border-radius: 10px;
   }
   .card-top-left, .card-middle, .card-bottom-right {
     font-size: 3em;

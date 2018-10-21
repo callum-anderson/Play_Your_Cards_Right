@@ -4,8 +4,7 @@ body {
   margin: 0 auto;
 }
 #header {
-  padding: 1.5em;
-  height: 20vh;
+  padding: 1em;
   min-height: 100px;
   font-family: "Segoe Script", "Script", "Georgia", serif;
 }
@@ -21,11 +20,19 @@ body {
   font-size: 1em;
   text-align: center;
   margin: 0 auto;
-  width: 90%;
-  padding: 0.5em;
+  width: 100%;
+  padding: 0.5em 0;
+}
+#header > h1::before {
+  content: "\2665 \2660";
+  margin-right: 1em;
+}
+#header > h1::after {
+  content: "\2666 \2663";
+  margin-left: 1em;
 }
 #menu {
-  margin: 2em auto;
+  margin: 1.5em auto;
   width: 90%;
 }
 #menu ul {
@@ -54,14 +61,17 @@ body {
   background-color: rgb(255,255,255);
 }
 #container {
-  width: 90%;
+  width: 95%;
   margin: auto;
   min-height: 600px;
   text-align: center;
 }
+#game-area {
+  margin: 0 auto 1em;
+}
 #card-rack {
   min-height: 100px;
-  margin: 0 auto;
+  margin: auto;
   padding: 5% 0;
   text-shadow: none;
 }
@@ -79,15 +89,78 @@ body {
 #button-controls button:hover {
   background-color: rgb(255,255,255);
 }
+#change-card::after {
+  content: "\27F3";
+}
+#higher-button::after {
+  content: "\21E7";
+}
+#lower-button::after {
+  content: "\21E9";
+}
+#change-card::after, #higher-button::after, #lower-button::after {
+font-weight: bold;
+margin-left: 0.4em;
+}
 .higher-lower-pressed {
   color: red;
 }
 #game-output {
-  margin: auto;
+  margin: 1em auto;
   text-shadow: none;
+  font-size: 0.8em;
+}
+#card-changes-output, #score-output {
+  display: inline-block;
+  width: 45%;
+  margin: 0.5em auto 0;
+  padding: 0.5em 0;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 0.7em;
+  font-family: Verdana, sans-serif;
+  text-transform: uppercase;
+}
+#score-span, #changes-span {
+  font-size: 1.4em;
+}
+#game-info {
+  margin: 0.5em auto 0;
+  min-height: 20px;
+  display: block;
+  width: 95%;
+  padding: 0.4em;
+  background-color: white;
+  border-radius: 5px;
+}
+#question-output li:hover {
+  background-color: white;
+  cursor: pointer;
+}
+#question-output li {
+  list-style-type: none;
+  margin: 0.5em auto;
+  background-color: lavender;
+  padding: 0.2em;
+  border-radius: 5px;
+}
+#question-output ul {
+  width: 90%;
+}
+#question-output {
+  border-radius: 5px;
+  background-color: white;
+  margin: 0.5em;
+}
+#question-output p, #question-output ul {
+  padding: 0.5em;
+  margin: 0 auto;
 }
 .highlight-correct-answer {
   background-color: green;
+}
+.red {
+  color: red;
 }
 
 
@@ -96,11 +169,12 @@ body {
 @media screen and (min-width: 768px) {
   #header {
     height: auto;
-    padding: 1.5em 0 0;
+    padding: 1em;
   }
   #header > h1 {
-    width: 70%;
-    font-size: 1.5em;
+    width: 85%;
+    font-size: 2.5em;
+    padding: 0.5em;
   }
   #menu {
     margin: 2em auto;
@@ -108,22 +182,35 @@ body {
   }
   #menu ul {
     width: 80%;
-    font-size: 1em;
+    font-size: 2em;
   }
   #menu li {
     margin: 0 1em;
-    padding: 0.1em 0.7em;
+    padding: 0.2em 0.7em;
   }
   #game-area, #game-output {
     border: 3px solid lightgray;
     width: 100%;
     margin: 1em auto;
   }
+  #game-output ul {
+    width: 80%;
+  }
   #button-controls button {
-    font-size: 1em;
+    font-size: 2em;
     margin: 0.2em;
     padding: 0.1em 0.8em;
     box-shadow: 1px 1px lightgray;
+  }
+  #game-output {
+    font-size: 2em;
+  }
+  #game-info {
+    min-height: 70px;
+  }
+  #game-info, #question-output li, #question-output,
+    #card-changes-output, #score-output {
+    border-radius: 10px;
   }
 
 }
@@ -142,5 +229,7 @@ body {
     width: 80%;
     margin: 1em auto;
   }
-
+  #game-output ul {
+    width: 60%;
+  }
 }

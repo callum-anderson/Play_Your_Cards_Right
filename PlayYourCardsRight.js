@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const dealtCards = [];
   let currentCard = 0;
   let gameActive = false;
+  let currentScore = 0;
+  let currentCardChanges = 3;
 
   const dealButton = document.querySelector('#deal-button');
   const playButton = document.querySelector('#play-button');
@@ -26,6 +28,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const gameInfo = document.querySelector('#game-info');
   const gameOutput = document.querySelector('#game-output');
   const questionSection = document.querySelector('#question-output');
+
+  const gameScore = document.querySelector('#score-span');
+  const cardChanges = document.querySelector('#changes-span');
 
   playButton.addEventListener('click', ()=>{
     resetGame();
@@ -72,6 +77,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
 
   function dealCards() {
+    dealtCards.length = 0;
     let i = 0;
     function setCard() {
       cardSlots[i].style.background = 'repeating-linear-gradient(45deg,lightcoral,lightcoral 10px,crimson 10px,crimson 20px)';
@@ -101,8 +107,25 @@ document.addEventListener('DOMContentLoaded', ()=>{
           if (e.target.nextElementSibling != null && evaluateCards()) {
             e.target.nextElementSibling.classList.add('next-card');
             currentCard++;
+            updateScore();
           } else if (e.target.nextElementSibling === null && evaluateCards()) {
-            endGame(true);
+            let delay = 0;
+            function delayReRack() {
+              delay++;
+              if (delay<7){
+                if (gameInfo.textContent === "") {
+                  gameInfo.textContent = "RE-RACKING.....";
+                } else {gameInfo.textContent = "";}
+                setTimeout(delayReRack, 500);
+              } else {
+                currentCard = 0;
+                updateScore();
+                rackCards();
+                dealCards();
+                setUpCards();
+              }
+            }
+            delayReRack();
           } else {
             endGame(false);
           }
@@ -127,13 +150,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
   changeCardButton.onclick = function() {
-    if (gameActive) {
-        if (questionSection.innerHTML === "") {
-        addQuestionToPage(loadQuestion());
-      } else {
-        gameInfo.textContent = "You can't change your card twice in a row!";
+    if (gameActive && !cardSlots[currentCard].firstElementChild.classList.contains('hidden')) {
+        if (currentCardChanges>0) {
+          questionSection.innerHTML = "";
+          updateCardChanges();
+          addQuestionToPage(loadQuestion());
+        } else {
+          gameInfo.textContent = "You have no more card changes to play!";
+          questionSection.innerHTML = "";
+        }
       }
-    }
+
   }
 
   function loadQuestion() {
@@ -142,7 +169,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
     return questionToReturn;
   }
 
+  function updateScore() {
+    currentScore++;
+    gameScore.textContent = currentScore;
+  }
+
+  function updateCardChanges() {
+    currentCardChanges--;
+    cardChanges.textContent = currentCardChanges;
+  }
+
 function addQuestionToPage(loadedQuestion) {
+  gameInfo.textContent = "Answer the following to swap your card...";
   const quest = document.createElement('p');
   quest.textContent = loadedQuestion[0].question;
   const questions = document.createElement('ul');
@@ -221,8 +259,7 @@ function addQuestionToPage(loadedQuestion) {
     questionSection.innerHTML = "";
   }
 
-  function resetGame() {
-    gameActive = true;
+  function rackCards() {
     for (cardSlot of cardSlots) {
       let i = 0;
       function resetCard() {
@@ -237,11 +274,21 @@ function addQuestionToPage(loadedQuestion) {
     for (cardSlot of cardSlots) {
           cardSlot.innerHTML = '<div class="card-content hidden"></div>';
     }
+  }
+
+  function resetGame() {
+    gameActive = true;
+    rackCards();
     gameDeck = startDeck;
     dealtCards.length = 0;
     gameInfo.textContent = "";
     questionSection.innerHTML = "";
+    gameScore.textContent = "0";
+    cardChanges.textContent = "3";
+
     currentCard = 0;
+    currentScore = 0;
+    currentCardChanges = 3;
   }
 
 });
