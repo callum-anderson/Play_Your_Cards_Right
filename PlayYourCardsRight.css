@@ -5,6 +5,7 @@ html, body {
 body {
   background-color: purple;
   margin: 0 auto;
+  font-family: Verdana, sans-serif;
 }
 #header {
   padding: 1em;
@@ -20,6 +21,7 @@ body {
   box-shadow: 2px 1px 2px lightgray;
 }
 #header > h1 {
+  background-color: white;
   font-size: 1em;
   text-align: center;
   margin: 0 auto;
@@ -49,17 +51,19 @@ body {
   padding: 0;
 }
 #menu li, #button-controls li {
-  padding: 0.1em 0.7em;
+  padding: 0.3em 0.7em;
   text-align: center;
   list-style-type: none;
-  background-color: rgba(255,255,255,0.8);
+  background-color: white;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 2px 1px 2px lightgray;
   cursor: pointer;
 }
-#button-controls li {
-  padding: 0.5em;
+#instructions, #about{
+  display: none;
+  position: fixed;
+  z-index: 2;
 }
 #menu li:hover, #button-controls li:hover {
   background-color: rgb(255,255,255);
@@ -78,6 +82,11 @@ body {
   margin: auto;
   padding: 3% 0;
   text-shadow: none;
+}
+#button-controls li {
+  padding: 0.6em;
+  font-size: 0.8em;
+  margin: 0.5em auto;
 }
 #change-card::after {
   content: "\27F3";
@@ -108,7 +117,6 @@ body {
   background-color: white;
   border-radius: 5px;
   font-size: 0.7em;
-  font-family: Verdana, sans-serif;
   text-transform: uppercase;
 }
 #score-span, #changes-span {
@@ -122,6 +130,7 @@ body {
   padding: 0.4em;
   background-color: white;
   border-radius: 5px;
+  border: 3px solid white;
 }
 #question-output li:hover {
   background-color: snow;
@@ -152,7 +161,6 @@ body {
 .red {
   color: red;
 }
-
 
 
      /* start of tablet devices */
@@ -186,7 +194,7 @@ body {
     margin: 1em auto;
   }
   #button-controls li {
-    font-size: 2em;
+    font-size: 1.7em;
     margin: 0 1em;
     padding: 0.5em 0.8em;
   }
@@ -210,6 +218,7 @@ body {
   }
 
 }
+
      /* start of desktop devices */
 @media screen and (min-width: 1025px) {
   #header {

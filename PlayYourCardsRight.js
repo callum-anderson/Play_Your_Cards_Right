@@ -21,10 +21,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   const dealButton = document.querySelector('#deal-button');
   const playButton = document.querySelector('#play-button');
+  const aboutButton = document.querySelector('#about-button');
+  const instructionsButton = document.querySelector('#instructions-button');
   const higherButton = document.querySelector('#higher-button');
   const lowerButton = document.querySelector('#lower-button');
   const changeCardButton = document.querySelector('#change-card');
 
+  const aboutModal = document.querySelector('#about');
+  const instructionsModal = document.querySelector('#instructions');
   const gameInfo = document.querySelector('#game-info');
   const gameOutput = document.querySelector('#game-output');
   const questionSection = document.querySelector('#question-output');
@@ -38,7 +42,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     setUpCards();
   });
 
+  aboutButton.addEventListener('click', ()=>{
+    aboutModal.style.display = "block";
+  });
+
   higherButton.addEventListener('click', (e)=>{
+    console.log(gameDeck.length);
     lowerButton.classList.remove('higher-lower-pressed');
     e.target.classList.add('higher-lower-pressed');
   });
@@ -108,15 +117,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
             e.target.nextElementSibling.classList.add('next-card');
             currentCard++;
             updateScore();
-          } else if (e.target.nextElementSibling === null && evaluateCards()) {
+          } else if (e.target.nextElementSibling === null && evaluateCards() && gameDeck.length>=5) {
             let delay = 0;
             function delayReRack() {
               delay++;
-              if (delay<7){
+              if (delay<5){
                 if (gameInfo.textContent === "") {
+                  gameInfoFlash();
                   gameInfo.textContent = "RE-RACKING.....";
-                } else {gameInfo.textContent = "";}
-                setTimeout(delayReRack, 500);
+                } else {
+                  gameInfo.textContent = "";
+                }
+                setTimeout(delayReRack, 400);
               } else {
                 currentCard = 0;
                 updateScore();
@@ -126,6 +138,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
               }
             }
             delayReRack();
+          } else if (e.target.nextElementSibling === null && evaluateCards()) {
+            updateScore();
+            endGame(true);
           } else {
             endGame(false);
           }
@@ -144,6 +159,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       e.target.classList.remove('next-card');
       e.target.onclick = null;
     }
+    console.log(dealtCards);
   }
 
 
@@ -156,6 +172,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
           updateCardChanges();
           addQuestionToPage(loadQuestion());
         } else {
+          gameInfoFlash();
           gameInfo.textContent = "You have no more card changes to play!";
           questionSection.innerHTML = "";
         }
@@ -172,14 +189,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
   function updateScore() {
     currentScore++;
     gameScore.textContent = currentScore;
+    gameChangesScoreFlash(gameScore);
   }
 
   function updateCardChanges() {
     currentCardChanges--;
     cardChanges.textContent = currentCardChanges;
+    gameChangesScoreFlash(cardChanges);
   }
 
 function addQuestionToPage(loadedQuestion) {
+  gameInfoFlash();
   gameInfo.textContent = "Answer the following to swap your card...";
   const quest = document.createElement('p');
   quest.textContent = loadedQuestion[0].question;
@@ -190,9 +210,11 @@ function addQuestionToPage(loadedQuestion) {
     listItem.onclick = function(e) {
       e.target.parentNode.children[loadedQuestion[0].answer].classList.add('highlight-correct-answer');
       if (e.target.textContent === loadedQuestion[0].answers[loadedQuestion[0].answer]) {
+        gameInfoFlash();
         gameInfo.textContent = "Correct! Your card has been swapped.";
         changeCard();
       } else {
+        gameInfoFlash();
         gameInfo.textContent = "Incorrect!";
       }
       for (item of e.target.parentNode.children) {
@@ -251,7 +273,7 @@ function addQuestionToPage(loadedQuestion) {
     for (cardSlot of cardSlots) {
       cardSlot.onclick = null;
     }
-    gameWon ? gameInfo.textContent = "YOU WIN" : gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
+    gameWon ? gameInfo.textContent = "\u2666 \u2663 All cards have been played - YOU WIN! \u2665 \u2660" : gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
   }
 
   function clearAreas() {
@@ -277,8 +299,8 @@ function addQuestionToPage(loadedQuestion) {
   }
 
   function resetGame() {
+    gameInfoFlash();
     gameActive = true;
-    rackCards();
     gameDeck = startDeck;
     dealtCards.length = 0;
     gameInfo.textContent = "Click on the first card to reveal it...";
@@ -289,6 +311,35 @@ function addQuestionToPage(loadedQuestion) {
     currentCard = 0;
     currentScore = 0;
     currentCardChanges = 3;
+    rackCards();
+  }
+
+  function gameInfoFlash() {
+      let i = 12;
+      function increment(){
+        gameInfo.style.border = "3px solid rgba(128,0,128,"+(i/20)+")";
+        if (i>-1) {
+          i--;
+          setTimeout(increment, 100);
+        } else {
+          gameInfo.style.border = "3px solid white";
+        }
+      }
+      increment();
+  }
+
+  function gameChangesScoreFlash(element) {
+      let i = 12;
+      function increment(){
+        element.style.color = "rgba(128,0,128,"+(i/20)+")";
+        if (i>-1) {
+          i--;
+          setTimeout(increment, 80);
+        } else {
+          element.style.color = "black";
+        }
+      }
+      increment();
   }
 
 });
