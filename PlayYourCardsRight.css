@@ -16,7 +16,7 @@ body {
   font-weight: bold;
   border: 3px solid lightgray;
   border-radius: 10px;
-  text-shadow: 2px 2px rgba(150,150,150,0.7);
+  text-shadow: 0.5px 0.5px rgba(150,150,150,0.7);
   box-shadow: 2px 1px 2px lightgray;
 }
 #header > h1 {
@@ -38,29 +38,30 @@ body {
   margin: 1.5em auto;
   width: 90%;
 }
-#menu ul {
+#menu ul, #button-controls {
   display: flex;
   justify-content: space-around;
   flex-wrap: nowrap;
   align-items: center;
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin: auto;
-  width: 90%;
+  width: 95%;
   padding: 0;
 }
-#menu li {
+#menu li, #button-controls li {
   padding: 0.1em 0.7em;
   text-align: center;
   list-style-type: none;
   background-color: rgba(255,255,255,0.8);
   font-weight: bold;
-  border: 3px solid lightgray;
   border-radius: 10px;
-  text-shadow: 2px 2px rgba(150,150,150,0.7);
   box-shadow: 2px 1px 2px lightgray;
   cursor: pointer;
 }
-#menu li:hover {
+#button-controls li {
+  padding: 0.5em;
+}
+#menu li:hover, #button-controls li:hover {
   background-color: rgb(255,255,255);
 }
 #container {
@@ -75,22 +76,8 @@ body {
 #card-rack {
   min-height: 100px;
   margin: auto;
-  padding: 5% 0;
+  padding: 3% 0;
   text-shadow: none;
-}
-#button-controls {
-  margin-bottom: 1em;
-}
-#button-controls button {
-  font-size: 0.8em;
-  border-radius: 10px;
-  margin: 0.2em;
-  padding: 0.1em 0.7em;
-  box-shadow: 0.5px 0.5px lightgray;
-  cursor: pointer;
-}
-#button-controls button:hover {
-  background-color: rgb(255,255,255);
 }
 #change-card::after {
   content: "\27F3";
@@ -102,8 +89,8 @@ body {
   content: "\21E9";
 }
 #change-card::after, #higher-button::after, #lower-button::after {
-font-weight: bold;
-margin-left: 0.4em;
+  font-weight: bold;
+  margin-left: 0.4em;
 }
 .higher-lower-pressed {
   color: red;
@@ -111,7 +98,7 @@ margin-left: 0.4em;
 #game-output {
   margin: 1em auto;
   text-shadow: none;
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 #card-changes-output, #score-output {
   display: inline-block;
@@ -175,41 +162,47 @@ margin-left: 0.4em;
     padding: 1em;
   }
   #header > h1 {
-    width: 85%;
-    font-size: 2.5em;
-    padding: 0.5em;
+    width: 95%;
+    font-size: 2em;
+    padding: 0.5em 0;
+  }
+  #header > h1, #game-output, #game-area {
+    text-shadow: 1px 1px rgba(150,150,150,0.7);
+    box-shadow: 2px 1px 2px lightgray;
   }
   #menu {
-    margin: 2em auto;
+    margin: 1em auto;
     width: 80%;
   }
-  #menu ul {
+  #menu ul, #button-controls ul {
     width: 80%;
-    font-size: 2em;
+    font-size: 1.8em;
   }
   #menu li {
     margin: 0 1em;
-    padding: 0.2em 0.7em;
+    padding: 0.4em 0.8em;
+  }
+  #button-controls {
+    margin: 1em auto;
+  }
+  #button-controls li {
+    font-size: 2em;
+    margin: 0 1em;
+    padding: 0.5em 0.8em;
   }
   #game-area, #game-output {
     border: 3px solid lightgray;
     width: 100%;
-    margin: 1em auto;
+    margin: 0 auto 1em;
   }
   #game-output ul {
     width: 80%;
   }
-  #button-controls button {
-    font-size: 2em;
-    margin: 0.2em;
-    padding: 0.1em 0.8em;
-    box-shadow: 1px 1px lightgray;
-  }
   #game-output {
-    font-size: 2em;
+    font-size: 1.45em;
   }
   #game-info {
-    min-height: 70px;
+    min-height: 60px;
   }
   #game-info, #question-output li, #question-output,
     #card-changes-output, #score-output {
@@ -220,16 +213,13 @@ margin-left: 0.4em;
      /* start of desktop devices */
 @media screen and (min-width: 1025px) {
   #header {
-    font-size: 0.7em;
+    font-size: 0.9em;
     padding: 0.6em 0 0;
   }
   #menu {
     margin: 1.5em auto;
     width: 60%;
-    font-size: 0.8em;
-  }
-  #button-controls button {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   #game-area, #game-output {
     border: 3px solid lightgray;
@@ -238,6 +228,14 @@ margin-left: 0.4em;
   }
   #card-rack {
     padding: 0.4em;
+  }
+  #button-controls {
+    width: 70%;
+  }
+  #button-controls li {
+    font-size: 1.5em;
+    margin: 0 1em;
+    padding: 0.4em 0.8em;
   }
   #game-output {
     font-size: 1em;
