@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const lowerButton = document.querySelector('#lower-button');
   const changeCardButton = document.querySelector('#change-card');
 
-  const aboutModal = document.querySelector('#about');
-  const instructionsModal = document.querySelector('#instructions');
+  const aboutModal = document.querySelector('#about-modal');
+  const aboutCloseButton = document.querySelector('#about-modal .close-button');
+  const instructionsModal = document.querySelector('#instructions-modal');
+  const instructionsCloseButton = document.querySelector('#instructions-modal .close-button');
   const gameInfo = document.querySelector('#game-info');
   const gameOutput = document.querySelector('#game-output');
   const questionSection = document.querySelector('#question-output');
@@ -42,9 +44,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     setUpCards();
   });
 
-  aboutButton.addEventListener('click', ()=>{
-    aboutModal.style.display = "block";
-  });
+  aboutButton.addEventListener('click', toggleAbout);
+  aboutCloseButton.addEventListener('click', toggleAbout);
+  instructionsButton.addEventListener('click', toggleInstructions);
+  instructionsCloseButton.addEventListener('click', toggleInstructions);
+
 
   higherButton.addEventListener('click', (e)=>{
     console.log(gameDeck.length);
@@ -56,6 +60,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
     higherButton.classList.remove('higher-lower-pressed');
     e.target.classList.add('higher-lower-pressed');
   });
+
+  window.addEventListener('click', modalOnClick);
+
+  function toggleAbout() {
+       aboutModal.classList.toggle("show-rules-about");
+   }
+   function toggleInstructions() {
+        instructionsModal.classList.toggle("show-rules-about");
+    }
+
+    function modalOnClick(e) {
+        if (e.target === instructionsModal) {
+            toggleInstructions();
+        } else if (e.target === aboutModal) {
+          toggleAbout();
+        }
+    }
 
   function renderCard(targetCard, cardRank, cardSuit) {
     let suit = cardSuit;
@@ -208,7 +229,7 @@ function addQuestionToPage(loadedQuestion) {
     const listItem = document.createElement('li');
     listItem.textContent = loadedQuestion[0].answers[option];
     listItem.onclick = function(e) {
-      e.target.parentNode.children[loadedQuestion[0].answer].classList.add('highlight-correct-answer');
+      e.target.parentNode.children[loadedQuestion[0].answer].style.backgroundColor = "limegreen";
       if (e.target.textContent === loadedQuestion[0].answers[loadedQuestion[0].answer]) {
         gameInfoFlash();
         gameInfo.textContent = "Correct! Your card has been swapped.";
@@ -318,11 +339,13 @@ function addQuestionToPage(loadedQuestion) {
       let i = 12;
       function increment(){
         gameInfo.style.border = "3px solid rgba(128,0,128,"+(i/20)+")";
+        gameInfo.style.backgroundColor = "rgba(255,125,255,"+(i/20)+")";;
         if (i>-1) {
           i--;
-          setTimeout(increment, 100);
+          setTimeout(increment, 90);
         } else {
           gameInfo.style.border = "3px solid white";
+          gameInfo.style.backgroundColor = "white";
         }
       }
       increment();
