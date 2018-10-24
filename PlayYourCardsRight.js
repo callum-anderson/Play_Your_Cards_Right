@@ -156,6 +156,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                 rackCards();
                 dealCards();
                 setUpCards();
+                gameInfo.textContent = "Click on the first card to reveal it...";
               }
             }
             delayReRack();
@@ -229,6 +230,7 @@ function addQuestionToPage(loadedQuestion) {
     const listItem = document.createElement('li');
     listItem.textContent = loadedQuestion[0].answers[option];
     listItem.onclick = function(e) {
+      e.target.style.backgroundColor = "red";
       e.target.parentNode.children[loadedQuestion[0].answer].style.backgroundColor = "limegreen";
       if (e.target.textContent === loadedQuestion[0].answers[loadedQuestion[0].answer]) {
         gameInfoFlash();
@@ -294,7 +296,13 @@ function addQuestionToPage(loadedQuestion) {
     for (cardSlot of cardSlots) {
       cardSlot.onclick = null;
     }
-    gameWon ? gameInfo.textContent = "\u2666 \u2663 All cards have been played - YOU WIN! \u2665 \u2660" : gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
+    if (gameWon) {
+      gameInfo.textContent = "\u2666 \u2663 All cards have been played - YOU WIN! \u2665 \u2660";
+    } else {
+      gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
+      gameChangesScoreFlash(gameInfo);
+      gameInfo.style.backgroundColor = "lightcoral";
+    }
   }
 
   function clearAreas() {
