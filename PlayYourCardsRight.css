@@ -76,7 +76,8 @@ body {
   height: 90%;
   transform: translate(-50%, -50%);
   margin: 0;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .about-instructions-modal {
   position: fixed;
@@ -102,6 +103,7 @@ body {
   top: 1%;
   right: 1%;
   font-size: 3em;
+  font-weight: bold;
 }
 .close-button:hover {
   cursor: pointer;
@@ -240,6 +242,13 @@ body {
     padding: 0.4em 0.8em;
     border-radius: 10px;
   }
+  #about, #instructions {
+    width: 80%;
+  }
+  #about p, #instructions p {
+    font-size: 2.5em;
+    padding: 2%;
+  }
   #button-controls {
     margin: 1em auto;
   }
@@ -284,6 +293,14 @@ body {
   #menu li {
     border: 2px solid darkgray;
     background-color: rgba(255,255,255,0.95);
+  }
+  #about, #instructions {
+    width: 50%;
+    margin: 0 auto;
+  }
+  #about p, #instructions p {
+    font-size: 2em;
+    padding: 2%;
   }
   #game-area, #game-output {
     border: 3px solid lightgray;
