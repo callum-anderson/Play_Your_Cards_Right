@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
     }
     cardSlots[0].onclick = function(e) {
+      clearAreas();
       const innerCard = e.target.firstElementChild;
       e.target.style.background = "white";
       innerCard.classList.remove('hidden');
