@@ -182,7 +182,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
       e.target.classList.remove('next-card');
       e.target.onclick = null;
     }
-    console.log(dealtCards);
   }
 
 
