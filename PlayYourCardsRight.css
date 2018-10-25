@@ -148,6 +148,7 @@ body {
 }
 .higher-lower-pressed {
   color: red;
+  border: 2px solid red !important;
 }
 #game-output, #game-area {
   background-color: rgba(255,255,255,0.8);
