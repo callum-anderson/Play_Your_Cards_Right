@@ -65,15 +65,30 @@ left: 6%;
           box-shadow: 0 0 30px purple;
   }
   .card-top-left, .card-middle, .card-bottom-right {
-    font-size: 3em;
+    font-size: 3.5em;
   }
   .card-middle {
-    font-size: 12em;
+    font-size: 9em;
   }
-
 }
+
+/* up to 1024px and landscape */
+@media screen and (min-width: 768px) and (orientation: landscape) {
+  .card-top-left, .card-middle, .card-bottom-right {
+    font-size: 2em;
+  }
+  .card-middle {
+    font-size: 8em;
+  }
+}
+
 /* start of desktop devices */
 @media screen and (min-width: 1024px) {
-
+  .card-top-left, .card-middle, .card-bottom-right {
+    font-size: 2.8em;
+  }
+  .card-middle {
+    font-size: 8em;
+  }
 
 }
