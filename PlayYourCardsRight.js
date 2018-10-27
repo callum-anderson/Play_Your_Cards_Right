@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     document.querySelector('body').innerHTML += star;
   }
 
-  let gameDeck = startDeck;
+  let gameDeck = createDeck();
 
   const card1Slot = document.querySelector('#card1');
   const card2Slot = document.querySelector('#card2');
@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
   higherButton.addEventListener('click', (e)=>{
-    console.log(gameDeck.length);
     lowerButton.classList.remove('higher-lower-pressed');
     e.target.classList.add('higher-lower-pressed');
   });
@@ -330,7 +329,7 @@ function addQuestionToPage(loadedQuestion) {
   function resetGame() {
     gameInfoFlash();
     gameActive = true;
-    gameDeck = startDeck;
+    gameDeck = createDeck();
     dealtCards.length = 0;
     gameInfo.textContent = "Click on the first card to reveal it...";
     questionSection.innerHTML = "";
