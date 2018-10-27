@@ -529,8 +529,8 @@ width: 40%;
 margin: 20px auto;
 }
 #about p, #instructions p {
-font-size: 2em;
-padding: 2%;
+font-size: 2.5em;
+padding: 5%;
 }
 #game-area, #game-output {
 border: 3px solid lightgray;
