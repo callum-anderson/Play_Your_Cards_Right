@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', ()=>{
   for (let i = 0; i < 100; i++) {
-    const star = '<div class="star" style="animation: twinkle '+((Math.random()*5) + 5)+'s linear '+((Math.random()*5) + 5)+'s infinite; top: '+Math.random()*document.body.clientHeight*1.5+'px; left: '+Math.random()*document.body.clientWidth+'px;"></div>';
+    const star = '<div class="star" style="animation: twinkle '+((Math.random()*5) + 5)+'s linear '+((Math.random()*5) + 5)+'s infinite; top: '+Math.random()*document.body.clientHeight+'px; left: '+Math.random()*document.body.clientWidth+'px;"></div>';
     document.querySelector('body').innerHTML += star;
   }
 

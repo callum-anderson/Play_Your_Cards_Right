@@ -10,8 +10,7 @@ body {
   font-family: Verdana, sans-serif;
 }
 #header {
-  padding: 1em;
-  min-height: 100px;
+  padding: 0.5em 1em;
   font-family: "Segoe Script", "Script", "Georgia", serif;
 }
 #header > h1 {
@@ -33,7 +32,7 @@ body {
   margin-left: 1em;
 }
 #menu {
-  margin: 0.4em auto 0;
+  margin: 0.8em auto 0;
   width: 90%;
 }
 #menu ul, #button-controls {
@@ -127,7 +126,7 @@ body {
 #card-rack {
   min-height: 100px;
   margin: auto;
-  padding: 8px;;
+  padding: 5px;
   text-shadow: none;
 }
 #button-controls li {
@@ -194,9 +193,9 @@ body {
 }
 #question-output li {
   list-style-type: none;
-  margin: 0.6em auto;
+  margin: 0.8em auto;
   background-color: lavender;
-  padding: 0.6em 0.2em;
+  padding: 0.8em 0.2em;
   border-radius: 5px;
 }
 #question-output ul {
@@ -217,22 +216,23 @@ body {
 
     /* devices up to 767px - landscape */
 @media screen and (max-width: 767px) and (orientation: landscape) {
-  #header {
-    padding: 0.5em;
-    min-height: 50px;
+  #header{
+    padding: 0.5em 0 0 0.5em;
   }
   #header > h1 {
-    font-size: 0.8em;
+    font-size: 1em;
     display: inline-block;
     width: 50%;
   }
   #menu {
-    margin: 0;
-    display: inline-block;
+    margin: 1em 0;
     width: 45%;
   }
   #menu ul {
-    font-size: 1em;
+    font-size: 0.9em;
+  }
+  #play-button {
+    font-size: 1.2em;
   }
   #about, #instructions {
     width: 40%;
@@ -242,7 +242,9 @@ body {
   }
   #container {
     width: 100%;
-    margin: 0;
+    margin: 0.4em 0 0;
+    padding: 0 0.2em;
+    position: relative;
   }
   #about p, #instructions p {
     font-size: 1.2em;
@@ -252,33 +254,43 @@ body {
     margin: 1em auto;
   }
   #button-controls li {
-    font-size: 1em;
+    font-size: 0.9em;
   }
-  #game-area, #game-output {
-    width: 70%;
+  #card-rack {
+    padding: 0.6em;
+  }
+  #game-area {
+    width: 60%;
     display: inline-block;
-    margin: 2px;
+    margin: 0;
   }
   #game-output {
-    width: 25%;
+    width: 35%;
+    display: inline-block;
     vertical-align: top;
-    margin: 0;
+    margin: 0.2em;
+    position: relative;
+    top: -100px;
   }
   #game-output p {
     display: block;
     padding: 3px;
-    font-size: 0.7em;
+    font-size: 0.8em;
     width: 98%;
   }
   #game-info {
-    min-height: 30px;
+    min-height: 25px;
+  }
+  #question-output p {
+    padding: 0.5em 0.2em;
   }
   #question-output ul {
-    font-size: 0.8em;
+    font-size: 1em;
+    padding: 0 0 0.1em;
   }
   #question-output ul li {
-    margin: 0.9em auto;
-    padding: 0.4em;
+    margin: 0.8em auto 0.4em;
+    padding: 0.7em 0.1em;
   }
 }
 
@@ -286,11 +298,11 @@ body {
 @media screen and (min-width: 768px) {
   #header {
     height: auto;
-    padding: 1em;
+    padding: 0.8em 1em;
   }
   #header > h1 {
     width: 95%;
-    font-size: 2em;
+    font-size: 1.8em;
     padding: 0.5em 0;
     border-radius: 10px;
   }
@@ -304,7 +316,7 @@ body {
   }
   #menu ul, #button-controls ul {
     width: 80%;
-    font-size: 1.8em;
+    font-size: 1.5em;
   }
   #menu li {
     margin: 0 1em;
@@ -322,7 +334,7 @@ body {
     margin: 1em auto;
   }
   #button-controls li {
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin: 0 1em;
     padding: 0.5em 0.8em;
   }
@@ -335,14 +347,18 @@ body {
     width: 80%;
   }
   #game-output {
-    font-size: 1.45em;
+    font-size: 1.4em;
   }
   #game-info {
-    min-height: 60px;
+    min-height: 50px;
+    font-size: 0.9em;
   }
   #game-info, #question-output li, #question-output,
     #card-changes-output, #score-output {
     border-radius: 10px;
+  }
+  #question-output {
+    font-size: 0.8em;
   }
 
 }
@@ -350,91 +366,96 @@ body {
 /* devices up to 1024px - landscape */
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 #header {
-padding: 1em;
-min-height: 100px;
+  min-height: 50px;
+  padding: 0.3em 1em 0;
 }
 #header > h1 {
-font-size: 1.6em;
-display: inline-block;
-width: 50%;
+  font-size: 1.6em;
+  display: inline-block;
+  width: 50%;
 }
 #menu {
-margin-left: 10px;
-display: inline-block;
-width: 45%;
+  margin: 0.3em auto;
+  display: inline-block;
+  width: 45%;
 }
 #menu ul {
-font-size: 1.5em;
+  font-size: 1.2em;
+}
+#play-button {
+  font-size: 1.3em;
 }
 #about, #instructions {
-width: 50%;
-margin: 0 auto;
-position: relative;
-top: -10%;
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  top: -10%;
 }
 #container {
-width: 100%;
-margin: 1em auto;
+  width: 100%;
+  margin: 1em auto;
 }
 #about p, #instructions p {
-font-size: 2em;
-padding: 3%;
+  font-size: 2em;
+  padding: 3%;
 }
 #card-rack {
-  margin: 2em 0;
+  margin: 0;
+  padding: 0.4em 3em;
 }
 #button-controls {
-margin: 2em auto;
+  margin: 0.6em auto;
 }
 #button-controls li {
-font-size: 1.6em;
+  font-size: 1.4em;
 }
 #game-area, #game-output {
-width: 70%;
-display: inline-block;
-margin: 2px;
-}
-#game-output {
-width: 25%;
-vertical-align: top;
-margin: 0;
+  width: 90%;
+  margin: 0.6em auto;
 }
 #game-output p {
-display: block;
-padding: 3px;
-font-size: 0.7em;
-width: 98%;
+  display: inline-block;
+  padding: 0.7em;
+  font-size: 0.7em;
+  width: 45%;
 }
-#game-info {
-min-height: 30px;
+#game-output #game-info {
+  min-height: 30px;
+  width: 92%;
 }
-#question-output ul {
-font-size: 0.8em;
+#question-output p {
+  font-size: 0.9em;
+  width: 100%;
 }
 #question-output ul li {
-margin: 0.9em auto;
-padding: 0.4em;
+  display: inline-block;
+  width: 45%;
+  margin: 0.6em;
+  padding: 0.8em;
 }
 }
 
-     /* start of desktop devices */
+     /* start of desktop devices up to 1280px */
 @media screen and (min-width: 1025px) {
   #header {
-    font-size: 0.9em;
-    padding: 0.6em 0 0;
+    padding: 1em;
+    min-height: 100px;
   }
   #header > h1 {
-    width: 80%;
+    font-size: 1.6em;
+    display: inline-block;
+    width: 50%;
   }
   #menu {
-    text-shadow: 1px 1px rgba(150,150,150,0.7);
-    margin: 1.5em auto;
-    width: 60%;
-    font-size: 0.7em;
+    margin-left: 10px;
+    display: inline-block;
+    width: 45%;
   }
-  #menu li {
-    border: 2px solid darkgray;
-    background-color: rgba(255,255,255,0.95);
+  #menu ul {
+    font-size: 1.1em;
+  }
+  #play-button {
+    font-size: 1.3em;
   }
   #about, #instructions {
     width: 50%;
@@ -450,25 +471,61 @@ padding: 0.4em;
     margin: 0.5em auto;
   }
   #card-rack {
-    padding: 0.6em;
+    padding: 0.5em 5em;;
   }
   #button-controls {
     width: 70%;
+    margin: 0.2em auto;
   }
   #button-controls li {
-    font-size: 1.2em;
+    font-size: 1em;
     margin: 0 1em;
     padding: 0.4em 0.8em;
-    border: 2px solid darkgray;
+    border-radius: 10px;
   }
   #game-output {
+    width: 90%;
     font-size: 1em;
   }
   #game-info {
-    min-height: 50px;
+    min-height: 40px;
     padding: 0.8em;
+    font-size: 0.8em;
   }
   #game-output ul {
     width: 60%;
   }
+}
+
+/* start of desktop devices over 1280px */
+@media screen and (min-width: 1281px) {
+#header {
+font-size: 1em;
+}
+#menu {
+font-size: 1em;
+margin: 1em auto;
+}
+#card-rack {
+padding: 1em 3em;
+}
+#button-controls {
+width: 80%;
+margin: 0.8em auto;
+}
+#button-controls li {
+font-size: 1.5em;
+padding: 0.6em 0.8em;
+}
+#game-output {
+font-size: 1.4em;
+}
+#game-info {
+min-height: 40px;
+padding: 0.8em;
+font-size: 0.8em;
+}
+#game-output ul {
+width: 60%;
+}
 }
