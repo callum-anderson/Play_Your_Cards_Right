@@ -42,13 +42,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const gameScore = document.querySelector('#score-span');
   const cardChanges = document.querySelector('#changes-span');
 
+  const audioClick = new Audio('./audio/Click.mp3');
+  const audioShuffleCards = new Audio('./audio/CardsShuffle.mp3');
+  const audioCardSwap = new Audio('./audio/CardSwap.mp3');
+  const audioCardsReRack = new Audio('./audio/CardsReRack.mp3');
+  const audioErrorOrLose = new Audio('./audio/ErrorOrLose.mp3');
+  const audioWinGame = new Audio('./audio/WinGame.mp3');
+
   playButton.addEventListener('click', ()=>{
+    audioClick.play();
     resetGame();
     dealCards();
     setUpCards();
   });
 
   playAgainButton.addEventListener('click', ()=>{
+    audioClick.play();
     toggleEndGameScreen();
     resetGame();
     dealCards();
@@ -124,6 +133,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   }
 
   function dealCards() {
+    audioShuffleCards.play();
     dealtCards.length = 0;
     let i = 0;
     function setCard() {
@@ -137,6 +147,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
     }
     setCard();
+    console.log(dealtCards);
   }
 
   function setUpCards() {
@@ -158,6 +169,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             updateScore();
           } else if (e.target.nextElementSibling === null && evaluateCards() && gameDeck.length>=5) {
             let delay = 0;
+            audioCardsReRack.play();
             function delayReRack() {
               delay++;
               if (delay<5){
@@ -209,10 +221,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
   changeCardButton.onclick = function() {
     if (gameActive && !cardSlots[currentCard].firstElementChild.classList.contains('hidden')) {
         if (currentCardChanges>0) {
+          audioClick.play();
           questionSection.innerHTML = "";
           updateCardChanges();
           addQuestionToPage(loadQuestion());
         } else {
+          audioErrorOrLose.play();
           gameInfoFlash();
           gameInfo.textContent = "You have no more card changes to play!";
           questionSection.innerHTML = "";
@@ -254,6 +268,7 @@ function addQuestionToPage(loadedQuestion) {
       if (e.target.textContent === loadedQuestion[0].answers[loadedQuestion[0].answer]) {
         gameInfoFlash();
         gameInfo.textContent = "Correct! Your card has been swapped.";
+        audioCardSwap.play();
         changeCard();
       } else {
         gameInfoFlash();
@@ -316,9 +331,13 @@ function addQuestionToPage(loadedQuestion) {
       cardSlot.onclick = null;
     }
     if (gameWon) {
+      audioWinGame.play();
+      gameInfo.style.backgroundColor = "lightcoral";
       gameInfo.textContent = "\u2666 \u2663 All cards have been played - YOU WIN! \u2665 \u2660";
       endGameModalMessage.textContent = "All cards have been played - YOU WIN! Your score was: " + currentScore;
+      toggleEndGameScreen();
     } else {
+      audioErrorOrLose.play();
       gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
       endGameModalMessage.textContent = "Your score was: " + currentScore;
       gameChangesScoreFlash(gameInfo);

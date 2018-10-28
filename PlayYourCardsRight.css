@@ -510,7 +510,7 @@ body {
     font-size: 1.2em;
   }
   #about, #instructions, #game-end {
-    width: 70%;
+    width: 60%;
   }
   #about p, #instructions p, #game-end p {
     font-size: 3em;
@@ -579,7 +579,7 @@ body {
   font-size: 1.3em;
 }
 #about, #instructions, #game-end {
-  width: 40%;
+  width: 35%;
 }
 #about p, #instructions p, #game-end p {
   font-size: 2em;
