@@ -79,7 +79,7 @@ body {
   height: 90%;
   transform: translate(-50%, -50%);
   margin: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 #game-end p {
