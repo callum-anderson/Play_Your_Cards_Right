@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         cardSlot.classList.add('next-card');
       }
       cardSlot.onclick = function(e) {
+        console.log(currentCard);
         clearAreas();
         const innerCard = e.target.firstElementChild;
         if (!e.target.previousElementSibling.firstElementChild.classList.contains('hidden')
@@ -190,6 +191,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       }
     }
     cardSlots[0].onclick = function(e) {
+      console.log(currentCard);
       clearAreas();
       const innerCard = e.target.firstElementChild;
       e.target.style.background = "white";
@@ -355,7 +357,7 @@ function addQuestionToPage(loadedQuestion) {
     gameInfo.textContent = "Click on the first card to reveal it...";
     questionSection.innerHTML = "";
     gameScore.textContent = "0";
-    cardChanges.textContent = "3";
+    cardChanges.textContent = "5";
 
     currentCard = 0;
     currentScore = 0;
