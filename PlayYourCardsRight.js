@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let currentCard = 0;
   let gameActive = false;
   let currentScore = 0;
-  let currentCardChanges = 3;
+  let currentCardChanges = 5;
 
   const dealButton = document.querySelector('#deal-button');
   const playButton = document.querySelector('#play-button');
@@ -359,7 +359,7 @@ function addQuestionToPage(loadedQuestion) {
 
     currentCard = 0;
     currentScore = 0;
-    currentCardChanges = 3;
+    currentCardChanges = 5;
     rackCards();
   }
 
