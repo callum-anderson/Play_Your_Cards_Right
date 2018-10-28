@@ -58,15 +58,12 @@ body {
 }
 #about, #instructions, #game-end {
   width: 70%;
-  /* height: 70%; */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 3px solid red;
   border-radius: 10px;
-  /* margin: 10% auto; */
-  /* display: block; */
   background: repeating-linear-gradient(45deg,lightcoral,lightcoral 30px,crimson 30px,crimson 60px);
 }
 #about p, #instructions p, #game-end p {
@@ -78,36 +75,24 @@ body {
   border: 3px solid red;
   left: 50%;
   top: 50%;
-  padding: 10px;
+  padding: 5%;
   height: 90%;
   transform: translate(-50%, -50%);
   margin: 0;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-/* #game-end {
-  width: 70%;
-  height: 70%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid red;
-  border-radius: 5px;
-  background: repeating-linear-gradient(45deg,lightcoral,lightcoral 30px,crimson 30px,crimson 60px);
+#game-end p {
+  padding: 50% 5% 20%;
+  text-shadow: 1px 1px rgba(150,150,150,0.7);
 }
-#game-end > p {
-  margin: auto;
-  padding: 0.5em;
-  width: 90%;
-  height: 90%;
-  background-color: white;
-  border-radius: 5px;
+#game-end p::before {
+  content: "\2666\2663\00a0\00a0GAME OVER\00a0\00a0\2665\2660";
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
-  transform: translate(-50%, -50%);
-} */
+  margin-left: -25%;
+}
 .modal {
   position: fixed;
   z-index: 2;
@@ -135,6 +120,21 @@ body {
 .close-button:hover {
   cursor: pointer;
   color: white;
+}
+#play-again-button {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  margin-left: -25%;
+  font-weight: bold;
+  font-family: "Segoe Script", "Script", "Georgia", serif;
+  padding: 0.3em 0.7em;
+  font-size: 2em;
+  background-color: lavender;
+  border : 2px solid white;
+  border-radius: 5px;
+  box-shadow: 2px 1px 2px lightgray;
+  cursor: pointer;
 }
 #menu li:hover, #button-controls li:hover {
   background: radial-gradient(white, white, lavender);
@@ -262,7 +262,6 @@ body {
   }
   #about, #instructions, #game-end {
     width: 35%;
-    /* margin: 10px auto; */
   }
   #container {
     width: 100%;
@@ -270,9 +269,8 @@ body {
     padding: 0 0.2em;
     position: relative;
   }
-  #about p, #instructions p {
+  #about p, #instructions p, #game-end p {
     font-size: 1.2em;
-    padding: 3%;
   }
   #button-controls {
     margin: 1em auto;
@@ -348,11 +346,9 @@ body {
     border-radius: 10px;
   }
   #about, #instructions, #game-end {
-    /* width: 70%; */
   }
-  #about p, #instructions p {
+  #about p, #instructions p, #game-end p {
     font-size: 2em;
-    padding: 2%;
   }
   #button-controls {
     margin: 1em auto;
@@ -409,7 +405,6 @@ body {
   }
   #about, #instructions, #game-end {
     width: 30%;
-    /* margin: 10px auto; */
   }
   #container {
     width: 100%;
@@ -417,9 +412,8 @@ body {
     padding: 0 0.2em;
     position: relative;
   }
-  #about p, #instructions p {
+  #about p, #instructions p, #game-end p {
     font-size: 1.2em;
-    padding: 3%;
   }
   #button-controls {
     margin: 1em auto;
@@ -489,11 +483,9 @@ body {
   }
   #about, #instructions, #game-end {
     width: 70%;
-    /* margin: 10px auto; */
   }
-  #about p, #instructions p {
+  #about p, #instructions p, #game-end p {
     font-size: 3em;
-    padding: 2%;
   }
   #container {
     width: 95%;
@@ -553,12 +545,10 @@ font-size: 1.1em;
 font-size: 1.3em;
 }
 #about, #instructions, #game-end {
-width: 45%;
-/* margin: 20px auto; */
+width: 40%;
 }
-#about p, #instructions p {
-font-size: 2.5em;
-padding: 5%;
+#about p, #instructions p, #game-end p {
+font-size: 2em;
 }
 #game-area, #game-output {
 border: 3px solid lightgray;

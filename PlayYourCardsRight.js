@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   const dealButton = document.querySelector('#deal-button');
   const playButton = document.querySelector('#play-button');
+  const playAgainButton = document.querySelector('#play-again-button');
   const aboutButton = document.querySelector('#about-button');
   const instructionsButton = document.querySelector('#instructions-button');
   const higherButton = document.querySelector('#higher-button');
@@ -36,11 +37,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const gameInfo = document.querySelector('#game-info');
   const gameOutput = document.querySelector('#game-output');
   const questionSection = document.querySelector('#question-output');
+  const endGameModalMessage = document.querySelector('#game-end p');
 
   const gameScore = document.querySelector('#score-span');
   const cardChanges = document.querySelector('#changes-span');
 
   playButton.addEventListener('click', ()=>{
+    resetGame();
+    dealCards();
+    setUpCards();
+  });
+
+  playAgainButton.addEventListener('click', ()=>{
+    toggleEndGameScreen();
     resetGame();
     dealCards();
     setUpCards();
@@ -306,8 +315,10 @@ function addQuestionToPage(loadedQuestion) {
     }
     if (gameWon) {
       gameInfo.textContent = "\u2666 \u2663 All cards have been played - YOU WIN! \u2665 \u2660";
+      endGameModalMessage.textContent = "All cards have been played - YOU WIN! Your score was: " + currentScore;
     } else {
       gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
+      endGameModalMessage.textContent = "Your score was: " + currentScore;
       gameChangesScoreFlash(gameInfo);
       gameInfo.style.backgroundColor = "lightcoral";
       toggleEndGameScreen();
