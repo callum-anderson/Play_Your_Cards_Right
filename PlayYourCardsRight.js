@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const aboutCloseButton = document.querySelector('#about-modal .close-button');
   const instructionsModal = document.querySelector('#instructions-modal');
   const instructionsCloseButton = document.querySelector('#instructions-modal .close-button');
+  const endGameModal = document.querySelector('#end-game-modal');
+  const endGameCloseButton = document.querySelector('#end-game-modal .close-button');
   const gameInfo = document.querySelector('#game-info');
   const gameOutput = document.querySelector('#game-output');
   const questionSection = document.querySelector('#question-output');
@@ -48,6 +50,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   aboutCloseButton.addEventListener('click', toggleAbout);
   instructionsButton.addEventListener('click', toggleInstructions);
   instructionsCloseButton.addEventListener('click', toggleInstructions);
+  endGameCloseButton.addEventListener('click', toggleEndGameScreen);
 
 
   higherButton.addEventListener('click', (e)=>{
@@ -63,10 +66,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
   window.addEventListener('click', modalOnClick);
 
   function toggleAbout() {
-       aboutModal.classList.toggle("show-rules-about");
+       aboutModal.classList.toggle("show-modal");
    }
    function toggleInstructions() {
-        instructionsModal.classList.toggle("show-rules-about");
+        instructionsModal.classList.toggle("show-modal");
+    }
+
+   function toggleEndGameScreen() {
+        endGameModal.classList.toggle("show-modal");
     }
 
     function modalOnClick(e) {
@@ -74,6 +81,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             toggleInstructions();
         } else if (e.target === aboutModal) {
           toggleAbout();
+        } else if (e.target === endGameModal) {
+          toggleEndGameScreen();
         }
     }
 
@@ -301,6 +310,7 @@ function addQuestionToPage(loadedQuestion) {
       gameInfo.textContent = "\u2666 \u2663 GAME OVER \u2665 \u2660";
       gameChangesScoreFlash(gameInfo);
       gameInfo.style.backgroundColor = "lightcoral";
+      toggleEndGameScreen();
     }
   }
 

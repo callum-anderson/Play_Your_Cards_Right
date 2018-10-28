@@ -13,7 +13,7 @@
   <script src="quizquestions.js"></script>
 </head>
 <body>
-  <div class="about-instructions-modal" id="instructions-modal">
+  <div class="modal" id="instructions-modal">
     <div id="instructions" class="card">
     <span class="close-button">&times;</span>
   <p>When the game starts, 5 cards are dealt and placed on the rack. Click on the first one to reveal it, and then click on <strong>Higher</strong> or <strong>Lower</strong> before clicking on the next card. If you guessed correctly (or the cards match), you get a point. If you guess incorrectly, the game ends.<br><br>
@@ -21,10 +21,16 @@
     The game ends when there aren't enough cards left in the deck to play another round. In other words, there are less then 5 cards left in the deck. The maximum possible score is <strong>40</strong>.</p>
   </div>
   </div>
-  <div class="about-instructions-modal" id="about-modal">
+  <div class="modal" id="about-modal">
     <div id="about" class="card">
     <span class="close-button">&times;</span>
   <p>Created by <strong>Callum Anderson 2018</strong><br><br>I was inspired by the late Bruce Forsyth to create this game, which gave me the opportunity to test my JavaScript skills. See my Github repo below for more information about how the game is constructed.<br><br>I had limited time to create the game, as at the time of writing (October 2018) I'm studying at <a href="https://codeclan.com/" target="_blank">CodeClan</a> and then will be looking for a development role. Therefore it is a little rough round the edges, but I will return to work on it at a later date.<br><br>If you'd like to get in touch, please do via LinkedIn below or via my <a href="https://callum-anderson.github.io/" target="_blank">website</a>.<br><br> Thanks for looking!<br><br><br><a href="https://github.com/callum-anderson" target="_blank">https://github.com/callum-anderson</a><br><br><a href="https://www.linkedin.com/in/callum-anderson-072bb789/" target="_blank">https://www.linkedin.com/in/callum-anderson-072bb789/</a></p>
+  </div>
+  </div>
+  <div class="modal" id="end-game-modal">
+    <div id="game-end" class="card">
+    <span class="close-button">&times;</span>
+    <p>Game Over! You....  won or lost!</p>
   </div>
   </div>
   <header>
