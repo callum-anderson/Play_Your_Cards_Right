@@ -254,7 +254,7 @@ body {
   #header > h1 {
     font-size: 1em;
     display: inline-block;
-    width: 50%;
+    width: 60%;
   }
   #menu {
     margin: 1em 0;
@@ -279,7 +279,7 @@ body {
     font-size: 1.2em;
   }
   #game-end p {
-    font-size: 1.8em;
+    font-size: 1.5em;
     padding: 45% 3% 25%;
   }
   #game-end p:before {
